@@ -1,5 +1,3 @@
-/* const products = [] */
-
 const Product = require("../models/product")
 
 exports.getAddProduct = (req, res, next) => {
@@ -23,35 +21,11 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
     Product.fetchAll(products => {
-        res.render('shop/product-list', 
+        res.render('admin/products', 
             {prods: 
                 products, 
-                pageTitle: 'Shop', 
-                path: '/', hasProducts: 
-                products.length > 0, 
-                activeShop: true, 
-                productCss: true
+                pageTitle: 'Admin Products', 
+                path: '/admin/products', 
             });
     }) 
-
-        // console.log("Another middleware");
-    /* res.sendFile(path.join(__dirname, '../' ,'views', 'shop.html')); */
-
-/*     console.log(adminData.products)
-    res.sendFile(path.join(rootDir, 'views', 'shop.html')); */
-
-    // const products = adminData.products
-
-    /*     const products = Product.fetchAll()
-
-    res.render('shop', 
-        {prods: 
-            products, 
-            pageTitle: 'Shop', 
-            path: '/', hasProducts: 
-            products.length > 0, 
-            activeShop: true, 
-            productCss: true
-        }); */
-
 }
